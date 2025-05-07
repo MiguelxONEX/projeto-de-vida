@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['email'] = $email;
 
         echo "<p>Login realizado com sucesso! Redirecionando...</p>";
-        header("refresh:2; url=user.php"); // Redireciona após 2 segundos
+        header("Location: ../../vida/index.html"); // Redireciona após 2 segundos
         exit;
     } else {
         echo "<p style='color: red;'>E-mail ou senha incorretos.</p>";
