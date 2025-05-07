@@ -39,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 <div class="main">
         <div class="titulo">
-            <h1>Projeto</h1> <label> de vida </label>
+            <h1>Projeto  de vida</h1> </label>
         </div>
-        <h3>Vinicius Mendes</h3>
+        <h3>Miguel Vinicius B. Dias</h3>
         <div class="login-container">
             <div class="login-box">
                 <h1 class="login">Login</h1>
