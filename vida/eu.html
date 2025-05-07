@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Projeto de vida</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-menu">
+            <div class="logo">
+                <img src="gggggg.png" alt="Logo">
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-content">
+                <ul class="nav-list">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="profissao.html">Profissão</a></li>
+                    <li><a href="#">Teste de Personalidade</a></li>
+                    <li><a href="#">Teste de Inteligência</a></li>
+                    <li><a href="soueu.html">Quem sou eu?</a></li>
+                    <li class="user-controls">
+                        <a href="eu.html"><i class="fas fa-user-circle profile-icon"></i></a>
+                        <button class="logout-btn">Sair</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="menu-circle">
+                <div class="center-image">
+                    <img src="default-profile.jpg" alt="Profile" id="profileImage">
+                    <label for="imageInput" class="camera-icon">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                </div>
+                <div class="form-field top">
+                    <label>Nome:</label>
+                    <input type="text" id="nameInput" class="profile-input" required>
+                </div>
+                <div class="form-field right">
+                    <label>Email:</label>
+                    <input type="email" id="emailInput" class="profile-input" required>
+                </div>
+                <div class="form-field bottom">
+                    <label>Idade:</label>
+                    <input type="number" id="ageInput" class="profile-input" required min="1" max="120">
+                </div>
+                <button onclick="saveProfile(event)" class="menu-button bottom-left">Salvar</button>
+            </div>
+        </div>
+
+            <script>
+                // Carregar dados do perfil se existirem
+                function loadProfile() {
+                    const savedProfile = localStorage.getItem('userProfile');
+                    if (savedProfile) {
+                        const profile = JSON.parse(savedProfile);
+                        document.getElementById('nameInput').value = profile.name || '';
+                        document.getElementById('emailInput').value = profile.email || '';
+                        document.getElementById('ageInput').value = profile.age || '';
+                    }
+                }
+
+                // Salvar dados do perfil
+                function saveProfile(event) {
+                    event.preventDefault();
+                    
+                    const profile = {
+                        name: document.getElementById('nameInput').value,
+                        email: document.getElementById('emailInput').value,
+                        age: document.getElementById('ageInput').value
+                    };
+
+                    localStorage.setItem('userProfile', JSON.stringify(profile));
+                    alert('Perfil salvo com sucesso!');
+                }
+
+                // Manipular upload de imagem
+                document.getElementById('imageInput').addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const imageData = e.target.result;
+                            document.getElementById('profileImage').src = imageData;
+                            localStorage.setItem('profileImage', imageData);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                // Carregar imagem do perfil se existir
+                const savedImage = localStorage.getItem('profileImage');
+                if (savedImage) {
+                    document.getElementById('profileImage').src = savedImage;
+                }
+
+                // Carregar dados quando a página carregar
+                document.addEventListener('DOMContentLoaded', loadProfile);
+            </script>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

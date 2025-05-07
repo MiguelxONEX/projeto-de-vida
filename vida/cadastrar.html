@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cadastro - Projeto de vida</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #4267B2;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: clamp(20px, 5vw, 30px);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            margin: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: clamp(8px, 2.5vw, 10px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: clamp(14px, 4vw, 16px);
+            background-color: #f0f0f0;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .cadastrar-btn {
+            width: 100%;
+            padding: clamp(10px, 3vw, 12px);
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: clamp(14px, 4vw, 16px);
+            cursor: pointer;
+            margin-top: clamp(8px, 2.5vw, 10px);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .cadastrar-btn:hover {
+            background-color: #CC0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Nome" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Senha" required>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Confirmar senha" required>
+            </div>
+            <button type="submit" class="cadastrar-btn">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
