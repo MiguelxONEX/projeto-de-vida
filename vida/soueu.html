@@ -27,11 +27,14 @@
             </div>
         </nav>
 
-        <div class="writing-section">
-            <textarea class="text-area" placeholder="Escreva sobre você aqui..."></textarea>
-            <button class="save-button">Salvar</button>
-        </div>
-    </div>
+  <div class="writing-section">
+    <form action="salvar_soueu.php" method="POST">
+        <textarea class="text-area" name="texto_soueu" placeholder="Escreva sobre você aqui..." required></textarea>
+        <button class="save-button" type="submit">Salvar</button>
+    </form>
+</div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
